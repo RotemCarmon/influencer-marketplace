@@ -1,0 +1,13 @@
+.social-network-info-container {
+  align-items: center;
+  justify-content: center;
+  color: #2a2e2d;
+  .social-network-followers-count {
+    text-align: center;
+    font-size: 1.4rem;
+  }
+  .social-icon {
+    font-size: 1.4rem;
+    padding: 0.3rem 0;
+  }
+}

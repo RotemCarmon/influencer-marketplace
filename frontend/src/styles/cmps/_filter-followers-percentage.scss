@@ -1,0 +1,12 @@
+.men-followers-percentage-container {
+         
+    & >:first-child {
+        display: block;
+        margin-bottom: .5rem; 
+    }
+    .men-followers-percentage{
+        .men-followers-percentage-silder {
+            width: 80%;
+        }
+    }
+}

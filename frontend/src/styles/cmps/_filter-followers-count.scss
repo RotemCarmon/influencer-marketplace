@@ -1,0 +1,13 @@
+.followers-count-conatiner {
+         
+    & >:first-child {
+        display: block;
+        margin-bottom: .5rem; 
+    }
+    .followers-count{
+        .followers-count-slider {
+            width: 80%;
+            
+        }
+    }
+}
