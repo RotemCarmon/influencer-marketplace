@@ -9,7 +9,7 @@
 </template>
 <script>
 import influencerService from '../services/influencer.service.js';
-import influencerList from '../cmps/influencer-list.vue';
+import influencerList from '../cmps/influencer/influencer-list.vue';
 export default {
   name: 'main-app',
   data() {
@@ -46,6 +46,3 @@ export default {
   }
 };
 </script>
-
-<style>
-</style>

@@ -24,10 +24,10 @@
 
 <script>
 import moment from "moment";
-import influencerDetailsHeader from "../cmps/influencer-details-header";
-import influencerPhotosCarousel from "../cmps/influencer-photos-carousel";
-import influencerDetailsFooter from "../cmps/influencer-details-footer";
-import influencerDetailsSocials from "../cmps/influencer-details-socials";
+import influencerDetailsHeader from "../cmps/influencer/influencer-details-header";
+import influencerPhotosCarousel from "../cmps/influencer/influencer-photos-carousel";
+import influencerDetailsFooter from "../cmps/influencer/influencer-details-footer";
+import influencerDetailsSocials from "../cmps/influencer/influencer-details-socials";
 import { eventBus } from "../services/event.bus.service.js";
 import socket from "../services/socket.service.js";
 export default {
@@ -70,7 +70,10 @@ export default {
       });
       if (this.loggedInUser) {
         let offer = {
-          from: this.loggedInUser._id,
+          from: {
+            brandId: this.loggedInUser._id,
+            brandName: this.loggedInUser.name
+          },
           to: this.currInfluencer._id,
           timeSent: Date.now(),
           type: "offer",
@@ -79,7 +82,6 @@ export default {
           watch their full details and contact the sender to make it happen.
           `
         };
-
         socket.emit("ADD_MESSAGE", offer);
       }
     },
@@ -103,6 +105,3 @@ export default {
   }
 };
 </script>
-
-<style>
-</style>

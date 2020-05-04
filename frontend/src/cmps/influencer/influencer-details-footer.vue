@@ -4,7 +4,7 @@
       <div class="followers-interests-title-container flex align-center justify-center">
         <img
           class="followers-interests-icon"
-          src="../assets/icons/interests.svg"
+          src="@/assets/icons/interests.svg"
           alt="Followers interests"
           title="Followers interests"
         />
@@ -17,7 +17,7 @@
       <div class="price-per-post-title-container flex align-center justify-center">
         <img
           class="price-icon"
-          src="../assets/icons/price.svg"
+          src="@/assets/icons/price.svg"
           alt="Price per post"
           title="Price per post"
         />

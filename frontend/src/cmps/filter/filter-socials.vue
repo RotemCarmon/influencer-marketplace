@@ -15,7 +15,7 @@
       <label class="checkbox-container checkbox-tiktok">
         <input type="checkbox" value="tiktok" v-model="types " />
         <span class="checkmark">
-          <img src="../assets/icons/tik-tok.svg" class="tiktok-icon" />
+          <img src="@/assets/icons/tik-tok.svg" class="tiktok-icon" />
         </span>
       </label>
     </div>

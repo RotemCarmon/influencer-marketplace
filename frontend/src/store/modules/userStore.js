@@ -20,44 +20,36 @@ export default {
         }
     },
     mutations: {
-        setLoggedInUser(state, payload) {
-            state.loggedInUser = payload.loggedInUser;
+        setLoggedInUser(state, {loggedInUser}) {
+            state.loggedInUser = loggedInUser;
         },
-        setUserType(state, payload) {
-            state.userType = payload.userType;
+        setUserItems(state, {influencerList}) {
+            state.influencerList = influencerList;
         },
-        setUserItems(state, payload) {
-            state.influencerList = payload.influencerList;
-        },
-        demoLogin(state, payload) {
-            state.demoInfluencer = payload.credentials;
+        demoLogin(state, {credentials}) {
+            state.demoInfluencer = credentials;
         },
         setUserMessages(state, { payload }) {
             state.userMessages = payload;
         }
     },
     actions: {
+        // can be a commit straight from the component
         setUserMessages(context, payload) {
             context.commit({
                 type: 'setUserMessages',
                 payload
             })
         },
-        async setUserType(context, payload) {
-            await context.commit(payload);
-        },
-        async login(context, payload) {
-
-            const credentials = payload.credentials;
-            const loggedInUser = await userService.login(credentials);
+        async login(context, {credentials}) {
+            const loggedInUser = await userService.login(credentials); 
             context.commit({
                 type: 'setLoggedInUser',
                 loggedInUser
             });
             return loggedInUser;
         },
-        async demoLogin(context, payload) {
-            const credentials = payload.credentials;
+        async demoLogin(context, {credentials}) {
             context.commit({
                 type: 'demoLogin',
                 credentials

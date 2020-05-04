@@ -21,11 +21,11 @@ export default {
         async updateOffer(context, payload) {
             return await offerService.update(payload)
         },
-        async sendOffer(context, payload) {
-            return await offerService.add(payload)
+        async addOffer(context, {message}) {
+            return await offerService.add(message)
         },
         async loadOffers(context, { influencerId }) {
-            const offers = await offerService.query({ influencerId });
+            const offers = await offerService.query(influencerId);
             context.commit({
                 type: 'setOffers',
                 offers

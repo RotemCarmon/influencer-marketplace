@@ -5,10 +5,13 @@
     </div>
     <div v-if="loggedInUser" class="dashboard-socials-info">
       <h1>{{this.fullName}}</h1>
+      <h3>{{this.email}}</h3>
+      <h3>Age: {{this.age}}</h3>
       <ul class="clean-list" v-for="(social, idx) in loggedInUser.socials" :key="idx">
         <li>
-          <span>{{social.type}} followers:</span>
-          {{social.menFollowers + social.womenFollowers}}
+          <span>{{social.type}} :</span>
+          {{(social.menFollowers + social.womenFollowers).toLocaleString()}}
+          followers
         </li>
       </ul>
       <div class="dash-stats">
@@ -20,6 +23,7 @@
   </section>
 </template>
 <script>
+import moment from "moment";
 export default {
   name: "dash-board",
   data() {
@@ -34,24 +38,21 @@ export default {
     fullName() {
       return this.loggedInUser.firstName + " " + this.loggedInUser.lastName;
     },
+    age() {
+      return moment().diff(
+        new Date(+this.loggedInUser.dateOfBirth * 1000),
+        "years",
+        false
+      );
+    },
     dateOfBirth() {
       return this.loggedInUser.dateOfBirth;
     },
-    // userImg() {
-    //   return this.loggedInUser.photos[3].url;
-    // },
     socials() {
       return this.loggedInUser.socials;
     },
-    // menFollowers(){},
-    // womenFollowers(){},
-    // menFollowers(){},
-    // dateOfBirth(){},
     email() {
       return this.loggedInUser.email;
-    },
-    gender() {
-      return this.loggedInUser.gender;
     }
   },
   methods: {
@@ -61,8 +62,7 @@ export default {
         this.loggedInUser = await this.$store.dispatch("getLoggedInUser");
       }
     }
-  },
-  components: {}
+  }
 };
 </script>
 

@@ -31,7 +31,7 @@ export default {
       this.messagesForDisplay = messages.reverse();
     });
     socket.on("USER_NEW_MESSAGE", newMessage => {
-      this.messagesForDisplay.unshift(newMessage); // latest message on top of the list
+      this.messagesForDisplay.unshift(newMessage);
        eventBus.$emit("showMsg", {
         txt: 'You have a new message'
       });

@@ -1,7 +1,7 @@
 <template>
   <section >
     <span v-if="credentials.userType">Login as {{credentials.userType}}</span>
-    <form v-if="credentials.userType" @submit.prevent="login" class="login-page-form flex column">
+    <form  @submit.prevent="login" class="login-page-form flex column">
       <label>
         username:
         <input type="text" placeholder="username" v-model="credentials.username" />
@@ -10,6 +10,7 @@
         password:
         <input type="password" placeholder="password" v-model="credentials.password" />
       </label>
+      <h4 class="validation" :class="{invalid: isInvalid}">Invalid user details</h4>
       <button class="btn" type="submit">Sign In</button>
     </form>
   </section>
@@ -24,25 +25,24 @@ export default {
     return {
       credentials: {
         userType: 'brand',
-        username: null,
-        password: null
-      }
+        username: '',
+        password: ''
+      },
+      isInvalid: false,
     };
   },
   methods: {
     async login() {
-      
-      try {
         let loggedInUser = await this.$store.dispatch({
           type: "login",
           credentials: this.credentials
         });
-        
-        this.$router.push("/app");
-      } catch (error) {
-        console.log("wrong login detials");
-        console.log("ERROR = ", error);
-      }
+        if(loggedInUser){
+          this.isInvalid = false;
+          this.$router.push("/app");
+        } else {
+          this.isInvalid = true;
+        }
     }
   }
 };

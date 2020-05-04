@@ -37,13 +37,15 @@ export default {
     acceptOffer() {
       this.message.type = "message";
       console.log("offer accepted",this.message);
+      this.$store.dispatch({
+        type: 'addOffer',
+        message: this.message
+      })
     },
     declineOffer() {
       console.log("offer rejected");
+      
     }
   }
 };
 </script>
-
-<style>
-</style>

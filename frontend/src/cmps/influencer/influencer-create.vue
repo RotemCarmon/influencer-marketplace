@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import CloudinaryService from "../services/CloudinaryService.js";
+import CloudinaryService from "@/services/CloudinaryService.js";
 export default {
   name: "influencer-create",
   data() {

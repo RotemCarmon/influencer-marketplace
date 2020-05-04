@@ -3,9 +3,9 @@
         background-color: #f1f3f4;
     }
     &:nth-child(odd) {
-        background-color: #ededed;
+        background-color: #e6e6e6;
     }
     &:not(:last-of-type){
-        margin-block-end: 1rem;
+        margin-block-end: .1em;
     }
 }

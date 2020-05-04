@@ -68,13 +68,10 @@ export default {
         this.isClassIcon = true;
         this.iconClass = `fa fa-${this.social.type}`;
       } else if (this.social.type === "tiktok") {
-        this.iconImgSrc = require("../assets/icons/tiktok.svg");
+        this.iconImgSrc = require("@/assets/icons/tiktok.svg");
         this.isImgIcon = true;
       }
     }
   }
 };
 </script>
-
-<style>
-</style>

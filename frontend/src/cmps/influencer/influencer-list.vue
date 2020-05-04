@@ -8,7 +8,7 @@
 </template>
 <script>
 import influencerPreview from "./influencer-preview";
-import influencerFilter from "./influencer-filter";
+import influencerFilter from "../filter/influencer-filter";
 export default {
   name: "influencer-list",
   props: {

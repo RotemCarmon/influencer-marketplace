@@ -1,37 +1,36 @@
 .message-container-wrapper {
-    flex-direction: column;
-    padding: 1rem;
-    cursor: pointer;
+  flex-direction: column;
+  padding: 0.7rem;
+  cursor: pointer;
+
+  .message-preview-container {
+    padding: 0.5em 0.3em;
     
-    .message-preview-container {
-        
-        padding: 1rem 0;
-    
-
-        .message-subject {
-            font-family: "Quicksand-Bold";
-            text-transform: capitalize;
-            text-align: start;
-            min-width: 10rem;
-        }
-
-
-
-        .action-btn {
-            padding: 0 0.5rem;
-
-            &:hover {
-                cursor: pointer;
-                font-family: "Quicksand-Bold";
-            }
-        }
-
-        .accept-btn {
-            color: green;
-        }
-
-        .decline-btn {
-            color: red;
-        }
+    .message-subject {
+        font-family: "Quicksand-Bold";
+        text-transform: capitalize;
+        text-align: start;
+        min-width: 10rem;
     }
+    .action-btn {
+        padding: 0 0.5rem;
+
+        &:hover {
+            cursor: pointer;
+            font-family: "Quicksand-Bold";
+      }
+    }
+    
+    .accept-btn {
+        color: green;
+    }
+    
+    .decline-btn {
+        color: red;
+    }
+  }
+  .message-content {
+      padding: 0.4em;
+      background-color: rgba(white, 0.2);
+  }
 }

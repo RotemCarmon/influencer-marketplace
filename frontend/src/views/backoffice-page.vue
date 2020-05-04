@@ -1,12 +1,12 @@
 <template>
   <section v-if="loggedInUser" class="backoffice-page-container">
     <dash-board  :user="loggedInUser"></dash-board>
-    <div class="backoffice-navbar">
-      <!-- <button class="btn" @click="toggle('offer')">offers</button>
-      <button class="btn" @click="toggle('message')">messeges</button> -->
-      <offer-list v-if="offerShow" :user="loggedInUser"></offer-list>
-      <message-list  v-if="messageShow" :user="loggedInUser"></message-list>
+    <div class="backoffice-navbar flex">
+      <!-- <button class="" @click="toggle('message')">messeges</button>
+      <button class="" @click="toggle('offer')">offers</button> -->
     </div>
+      <message-list  v-if="messageShow" :user="loggedInUser"></message-list>
+      <offer-list v-if="offerShow" :user="loggedInUser"></offer-list>
     <router-view></router-view>
   </section>
 </template>
@@ -44,12 +44,12 @@ export default {
     },
     toggle(el) {
       if (el === "offer") {
-        this.offerShow = !this.offerShow;
+        this.offerShow = true;
         this.messageShow = false;
       }
       if (el === "message") {
+        this.messageShow = true;
         this.offerShow = false;
-        this.messageShow = !this.messageShow;
       }
     },
   },
@@ -65,6 +65,8 @@ export default {
     messageList
   }
 };
+
+//TODO:
 //add to created(){}
 //change offer status by clicking the
 //offer toggle button.

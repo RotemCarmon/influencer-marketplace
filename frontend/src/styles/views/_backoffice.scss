@@ -3,11 +3,23 @@
     text-align: center;
 }
 
-.backoffice-navbar {
-    margin-bottom: 15px;
-    .btn:first-child {
-        margin: 0;
+.backoffice-navbar  {
+    border-bottom: 1px solid #e1e1e1a1;
+    button{
+        padding: 8px;
+        background-color: #fcfcfc;
+        &:hover {
+            cursor: pointer;
+        }
+        &:focus {
+            background-color: #dbdbdb;
+        }
     }
+    button:not(:last-child){
+        
+        margin-right: 8px;
+    }
+
 }
 
 .fade-enter-active,

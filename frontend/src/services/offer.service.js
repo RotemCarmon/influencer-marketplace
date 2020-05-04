@@ -3,7 +3,7 @@ import httpService from "./httpService.js";
 
 async function query(filterBy = {}) {
     var queryParams = new URLSearchParams();
-    queryParams.append(filterBy._id)
+    if(filterBy) queryParams.append("id",filterBy);
     return await httpService.get(`offer?${queryParams}`);
 }
 
@@ -15,8 +15,8 @@ async function remove(id) {
     return await httpService.delete(`offer/${id}`, id);
 }
 
-async function add(payload) {
-    var offer = await _createOffer(payload)
+async function add(message) {
+    var offer = await _createOffer(message)
     await httpService.post(`offer`, offer)
     return offer    
 }
@@ -25,18 +25,16 @@ async function update({ offerData }) {
     return await httpService.put(`offer/${offer._id}`, offerData)
 }
 
-function _createOffer({influencer, brand}) {
+function _createOffer(message) {
     const newOffer = {
-        status: 'pending',
-        miniInfluencer: {
-            id: influencer._id,
-            firstName: influencer.firstName,
-            lastName: influencer.lastName
+        from: {
+            brandName: message.from.brandName,
+            brandId: message.from.brandId
         },
-        miniBrand: {
-            id: brand._id,
-            name:brand.name
-        },
+        influencerId: message.to,
+        messageId: message._id,
+        content: message.content,
+        subject: message.subject,
         createdAt: Date.now()
     };
     return newOffer;

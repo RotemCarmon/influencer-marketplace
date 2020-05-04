@@ -14,9 +14,10 @@ async function signUp(user) {
 
 async function login(credentials) {
     try {
-        const user = await httpService.post('auth/login', credentials)
+        const user = await httpService.post('auth/login', credentials); 
         gLoggedInUser = user;
         return gLoggedInUser;
+        
     } catch {
         if (!user) {
             throw new Error(`wrong login details`); // didn't find user with that username

@@ -93,6 +93,7 @@ import filterPrice from './filter-price';
 import filterMediaActivity from './filter-media-activity';
 
 export default {
+    name: 'influencer-filter',
     data(){
         return{
         activeFilter: null,

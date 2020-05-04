@@ -1,15 +1,14 @@
 <template>
   <section class="header">
     <nav class="navbar-container flex row flex-start ">
-      
         <label @click="$router.push('/').catch(err => {})">Trendzly</label>
-
       <div class="navbar flex  align-center">
+        <!-- hamburger btn -->
         <div 
         @click="isShowen = !isShowen"
         class="hamburger-btn fa fa-bars"></div>
 
-
+          <!-- Dark screen for navbar in mobile -->
           <div 
            :class="{showen: isShowen}"
           @click="isShowen = !isShowen"
@@ -27,10 +26,6 @@
         </div>
       </div>
 
-
-
-
-     
     </nav>
   </section>
 </template>
@@ -41,8 +36,7 @@ export default {
   data() {
     return {
       loggedInUser: null,
-      demoUser: {
-        
+      demoUser: {        
           userType: "influencer",
           username: "kianetti8",
           password: "ij7QdH"
@@ -51,7 +45,6 @@ export default {
     };
   },
   methods: {
-
   async demoInfluencer() {
     let demoUser = this.$store.getters.demoInfluencer;
     if(!demoUser) demoUser = this.demoUser;
